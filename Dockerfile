@@ -8,7 +8,7 @@
 # Contributors:
 #   Red Hat, Inc. - initial API and implementation
 
-FROM quay.io/buildah/stable:v1.14.3
+FROM quay.io/buildah/stable:latest
 
 ENV KUBECTL_VERSION v1.17.0
 ENV HELM_VERSION v3.0.2
