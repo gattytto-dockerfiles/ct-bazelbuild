@@ -34,6 +34,6 @@ RUN mkdir -p ${HOME} && \
 
 RUN cd /tmp && wget https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-linux-x86_64 && mv bazel-${BAZEL_VERSION}-linux-x86_64 /bin/bazel && chmod +x /bin/bazel
 
-RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}-/buildifier && chmod 777 buildifier && mv buildifier /usr/bin/
+RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}/buildifier && chmod 777 buildifier && mv buildifier /usr/bin/
 
-RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}-/buildozer && chmod 777 buildozer && mv buildozer /usr/bin/
+RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}/buildozer && chmod 777 buildozer && mv buildozer /usr/bin/
