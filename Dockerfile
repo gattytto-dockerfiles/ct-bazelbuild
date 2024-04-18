@@ -27,7 +27,7 @@ RUN mkdir -p ${HOME} && \
     chmod +x /usr/local/bin/kubectl && \
     curl -o- -L https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz | tar xvz -C /usr/local/bin --strip 1 && \
     # 'which' utility is used by VS Code Kubernetes extension to find the binaries, e.g. 'kubectl'
-    dnf install -y wget gcc-c++ awscli awscli gcc file which unzip findutils nodejs git patch dnf-plugins-core java-11-openjdk.x86_64 
+    dnf install -y wget gcc-c++ python3 awscli awscli gcc file which unzip findutils nodejs git patch dnf-plugins-core java-11-openjdk.x86_64 
     #dnf install -y python310 python https://rpmfind.net/linux/fedora/linux/updates/31/Everything/x86_64/Packages/b/binutils-gold-2.32-31.fc31.x86_64.rpm
     #dnf copr enable -y vbatts/bazel && \
     #dnf install -y bazel2
