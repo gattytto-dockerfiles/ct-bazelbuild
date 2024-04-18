@@ -13,7 +13,7 @@ FROM quay.io/buildah/stable:latest
 ENV KUBECTL_VERSION v1.29.4
 ENV HELM_VERSION v3.14.4
 ENV HOME=/home/thugnerdz
-ENV BUILDERS_VERSION=7.1.1
+ENV BUILDERS_VERSION=v7.1.1
 ENV BAZEL_VERSION=7.1.1
 RUN mkdir -p ${HOME} && \
     # Change permissions to let any arbitrary user
@@ -34,6 +34,6 @@ RUN mkdir -p ${HOME} && \
 
 RUN cd /tmp && wget https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-linux-x86_64 && mv bazel-${BAZEL_VERSION}-linux-x86_64 /bin/bazel && chmod +x /bin/bazel
 
-RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}/buildifier && chmod 777 buildifier && mv buildifier /usr/bin/
+RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}/buildifier-linux-amd64 && chmod 777 buildifier-linux-amd64 && mv buildifier-linux-amd64 /usr/bin/buildifier
 
-RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}/buildozer && chmod 777 buildozer && mv buildozer /usr/bin/
+RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}/buildozer-linux-amd64 && chmod 777 buildozer-linux-amd64 && mv buildozer-linux-amd64 /usr/bin/buildozer
