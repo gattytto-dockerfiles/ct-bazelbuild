@@ -12,7 +12,7 @@ FROM quay.io/buildah/stable:latest
 
 ENV KUBECTL_VERSION v1.29.4
 ENV HELM_VERSION v3.14.4
-ENV HOME=/home/thugnerdz
+ENV HOME=/home/whatever
 ENV BUILDERS_VERSION=v7.1.1
 ENV BAZEL_VERSION=7.1.1
 RUN mkdir -p ${HOME} && \
