@@ -26,7 +26,7 @@ RUN useradd -m -d /storage/${HOME} -s /bin/bash -g ${HOME} ${HOME}
     #dnf install -y python310 python https://rpmfind.net/linux/fedora/linux/updates/31/Everything/x86_64/Packages/b/binutils-gold-2.32-31.fc31.x86_64.rpm
     #dnf copr enable -y vbatts/bazel && \
     #dnf install -y bazel2
-
+USER ${HOME}
 RUN cd /tmp && wget https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-linux-x86_64 && mv bazel-${BAZEL_VERSION}-linux-x86_64 /bin/bazel && chmod +x /bin/bazel
 
 RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}/buildifier-linux-amd64 && chmod 777 buildifier-linux-amd64 && mv buildifier-linux-amd64 /usr/bin/buildifier
