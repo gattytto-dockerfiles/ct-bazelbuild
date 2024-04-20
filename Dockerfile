@@ -8,7 +8,7 @@
 # Contributors:
 #   Red Hat, Inc. - initial API and implementation
 
-FROM python3:3.10-bookworm
+FROM python:3.10-bookworm
 
 ENV KUBECTL_VERSION v1.29.4
 ENV HELM_VERSION v3.14.4
