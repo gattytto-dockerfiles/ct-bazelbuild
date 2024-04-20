@@ -15,7 +15,7 @@ ENV HELM_VERSION v3.14.4
 ENV HOME=bazel
 ENV BUILDERS_VERSION=v7.1.1
 ENV BAZEL_VERSION=7.1.1
-RUN useradd -d /storage/${HOME} -s /bin/bash -u 1000 -g 1000 ${HOME} && \
+RUN usermod -u 1000 -d /storage/${HOME} -s /bin/bash -g 1000 ${HOME} && \
     chgrp -R 0 /run && chmod -R g+rwX /run && \
     curl https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl && \
     chmod +x /usr/local/bin/kubectl && \
