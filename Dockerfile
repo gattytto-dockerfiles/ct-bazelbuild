@@ -12,10 +12,10 @@ FROM quay.io/buildah/stable:latest
 
 ENV KUBECTL_VERSION v1.29.4
 ENV HELM_VERSION v3.14.4
-ENV HOME=bazel
+ENV U_HOME=bazel
 ENV BUILDERS_VERSION=v7.1.1
 ENV BAZEL_VERSION=7.1.1
-RUN usermod -u 1000 -l ${HOME} build -d /storage/${HOME} -s /bin/bash && \
+RUN usermod -u 1000 -l ${U_HOME} build -d /storage/${U_HOME} -s /bin/bash && \
     chgrp -R 0 /run && chmod -R g+rwX /run && \
     curl https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl && \
     chmod +x /usr/local/bin/kubectl && \
