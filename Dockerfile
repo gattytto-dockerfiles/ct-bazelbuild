@@ -15,7 +15,7 @@ ENV HELM_VERSION v3.14.4
 ENV HOME=bazel
 ENV BUILDERS_VERSION=v7.1.1
 ENV BAZEL_VERSION=7.1.1
-RUN useradd -m -d /storage/${HOME} -s /bin/bash -g ${HOME} ${HOME}
+RUN useradd -d /storage/${HOME} -s /bin/bash -u 1000 -g 1000 ${HOME}
     # buildah login requires writing to /run
     chgrp -R 0 /run && chmod -R g+rwX /run && \
     curl https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl && \
@@ -26,7 +26,7 @@ RUN useradd -m -d /storage/${HOME} -s /bin/bash -g ${HOME} ${HOME}
     #dnf install -y python310 python https://rpmfind.net/linux/fedora/linux/updates/31/Everything/x86_64/Packages/b/binutils-gold-2.32-31.fc31.x86_64.rpm
     #dnf copr enable -y vbatts/bazel && \
     #dnf install -y bazel2
-USER ${HOME}
+USER 1000:1000
 RUN cd /tmp && wget https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-linux-x86_64 && mv bazel-${BAZEL_VERSION}-linux-x86_64 /bin/bazel && chmod +x /bin/bazel
 
 RUN cd /tmp && wget https://github.com/bazelbuild/buildtools/releases/download/${BUILDERS_VERSION}/buildifier-linux-amd64 && chmod 777 buildifier-linux-amd64 && mv buildifier-linux-amd64 /usr/bin/buildifier
