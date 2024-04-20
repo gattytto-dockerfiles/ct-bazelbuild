@@ -12,15 +12,10 @@ FROM quay.io/buildah/stable:latest
 
 ENV KUBECTL_VERSION v1.29.4
 ENV HELM_VERSION v3.14.4
-ENV HOME=/home/whatever
+ENV HOME=bazel
 ENV BUILDERS_VERSION=v7.1.1
 ENV BAZEL_VERSION=7.1.1
-RUN mkdir -p ${HOME} && \
-    # Change permissions to let any arbitrary user
-    for f in "${HOME}" "/etc/passwd"; do \
-      echo "Changing permissions on ${f}" && chgrp -R 0 ${f} && \
-      chmod -R g+rwX ${f}; \
-    done && \
+RUN useradd -m -d /storage/${HOME} -s /bin/bash -g ${HOME} ${HOME}
     # buildah login requires writing to /run
     chgrp -R 0 /run && chmod -R g+rwX /run && \
     curl https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl && \
