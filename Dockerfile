@@ -13,8 +13,8 @@ FROM python:3.10-bookworm
 ENV KUBECTL_VERSION v1.29.4
 ENV HELM_VERSION v3.14.4
 ENV U_HOME=bazel
-ENV BUILDERS_VERSION=v7.1.1
-ENV BAZEL_VERSION=7.1.1
+ENV BUILDERS_VERSION=v6.5.0
+ENV BAZEL_VERSION=6.5.0
 RUN groupadd -g 1000 ${U_HOME} && useradd -u 1000 -g 1000 ${U_HOME} -d /storage/${U_HOME} -s /bin/bash && \
     apt update && apt install -y wget g++ awscli file which unzip nano nodejs git golang default-jdk && \
     cd /tmp && wget https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-linux-x86_64 && mv bazel-${BAZEL_VERSION}-linux-x86_64 /bin/bazel && chmod +x /bin/bazel && \
